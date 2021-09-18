@@ -546,9 +546,20 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (setq org-journal-dir "~/Documenti/notes-about-anything/journal/")
-  (setq org-journal-file-format "%Y-%m-%d.org")
-)
+
+  (with-eval-after-load 'org
+    (setq org-agenda-files (directory-files-recursively "~/Documenti/notes-about-anything/journal/" "\\.org$"))
+
+    (setq org-todo-keywords
+        '((sequence "TODO" "DOING" "BLOCKED" "REVIEW" "HOLD" "|" "DONE" "ARCHIVED")))
+
+
+    (setq org-journal-carryover-items
+          "TODO=\"TODO\"|TODO=\"DOING\"|TODO=\"BLOCKED\"|TODO=\"REVIEW\"|TODO=\"HOLD\"")
+
+    (setq org-journal-dir "~/Documenti/notes-about-anything/journal/")
+    (setq org-journal-file-format "%Y-%m-%d.org"))
+  )
 
 
 ;; Do not write anything past this comment. This is where Emacs will
