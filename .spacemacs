@@ -553,6 +553,7 @@ before packages are loaded."
     (setq org-todo-keywords
         '((sequence "TODO" "DOING" "BLOCKED" "REVIEW" "HOLD" "|" "DONE" "ARCHIVED")))
 
+    (setq org-use-tag-inheritance nil)
 
     (setq org-journal-carryover-items
           "TODO=\"TODO\"|TODO=\"DOING\"|TODO=\"BLOCKED\"|TODO=\"REVIEW\"|TODO=\"HOLD\"")
