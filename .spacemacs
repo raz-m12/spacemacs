@@ -560,7 +560,7 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
   (with-eval-after-load 'org
-    (setq org-agenda-files (directory-files-recursively "~/Documenti/notes-about-anything/journal/" "\\.org$"))
+    (setq org-agenda-files (directory-files-recursively "~/Documents/github/notes-about-anything/journal/" "\\.org$"))
 
     (setq org-todo-keywords
         '((sequence "TODO" "DOING" "BLOCKED" "REVIEW" "HOLD" "|" "DONE" "ARCHIVED")))
@@ -570,14 +570,14 @@ before packages are loaded."
     (setq org-journal-carryover-items
           "TODO=\"TODO\"|TODO=\"DOING\"|TODO=\"BLOCKED\"|TODO=\"REVIEW\"|TODO=\"HOLD\"")
 
-    (setq org-journal-dir "~/Documenti/notes-about-anything/journal/")
+    (setq org-journal-dir "~/Documents/github/notes-about-anything/journal/")
     (setq org-journal-file-format "%Y-%m-%d.org"))
 
 
   (defun run-latex-make ()
     "Sync org file to Raspberry Pi with external script."
     (when (eq major-mode 'latex-mode)
-      (let ((default-directory "~/Documenti/notes-about-anything/cambridge-template-notes/"))
+      (let ((default-directory "~/Documents/github/notes-about-anything/cambridge-template-notes/"))
         (shell-command-to-string "make"))))
 
   (add-hook 'after-save-hook #'run-latex-make)
@@ -608,4 +608,3 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  )
 )
-
